@@ -1,0 +1,30 @@
+body {
+    
+  font-family: Arial, sans-serif;
+  margin: 20;
+  padding: 20;
+}
+
+img{
+    border-radius: 50%;
+    width: 200px;
+    height: auto;
+}
+.cv-container {
+    background-image: url(fon.png);
+    background-size: auto;
+    background-repeat: no-repeat;
+  padding: 100px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.cv-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cv-info{
+    color: black;
+    font-size: large;
+}
