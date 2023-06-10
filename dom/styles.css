@@ -1,0 +1,39 @@
+
+.rojo {
+    color: #ff0000;
+}
+
+.fondoverde {
+    background-color: #00ffb3;
+    color: #FFFFFF;
+}
+
+.list {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+#testtext, #testtext2 {
+    width: 200px;
+    border: 2px solid #808080;
+}
+
+#imgcontainer {
+    height: 200px;
+    width: 200px;
+    border: 2px solid #000000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+}
+
+.textoArcoiris {
+    background: linear-gradient(to right, #001aff, #0084ff, #00ffaa, #00FF00, #0000FF, #4B0082, #8F00FF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <p id="p1">¡Hola Mundo!</p>
+    <h1 id="titulo">Encabezado Viejo</h1>
+    <main>
+        <h1 class="rojo">TEST MAIN H1 CLASE ROJA</h1>
+        <p>TEST MAIN P</p>
+    </main>
+    <p class="fondoverde">TEST FONDOVERDE 1</p>
+    <p class="fondoverde">TEST FONDOVERDE 2</p>
+    <ul class="list">
+        <li>Lista desordenada #1</li>
+        <li>Lista desordenada #2</li>
+        <li>Lista desordenada #3</li>
+        <li>Lista desordenada #4</li>
+        <li>Lista desordenada #5</li>
+    </ul>
+    <form action="#" method="get" id="form1">
+        <label for="testtext">Test Alerta si el input está vacio</label><br>
+        <input type="text" name="testtext" id="testtext" placeholder="Deja vacio para activar la Alerta">
+        <input type="submit" value="ENVIAR" id="btnSubmit">
+    </form> 
+    <form action="#" method="get" id="form2">
+        <label for="testtext2">Test X &gt; 0 && x &lt; 10]</label> <br>
+        <input type="text" name="testtext2" id="testtext2" placeholder="Inserta un numero del 1 al 10">
+        <input type="submit" value="Comprobar" id="btnSubmit2">
+    </form>
+    <label for="colourInput">Color de Fondo</label>
+    <input type="color" name="colourInput" id="colourInput" value="#ffffff"><br>
+    <div id="imgcontainer" onclick="ChangePicture()">
+        <img id="imgimagin" src="Blue Black Futuristic And Modern Technology Logo (2).png" alt="">
+    </div>
+    <p class="textoArcoiris">Click en la imagen para CAMBIAR</p>
+    <h2 id="timelabel">HORA ACTUAL:</h2>
+</body>
+
+
+
+<!-- AQUÍ COMIENZA EL JAVASCRIPT -->
+<script>
+    document.getElementById("p1").innerHTML="¡Nuevo Texto!";
+    document.getElementById("titulo").innerHTML="¡Encabezado nuevo!";
+    const x = document.getElementsByTagName("main");
+    console.log(x);
+    const y = document.getElementsByTagName("p");
+    console.log(y);
+    const z = document.getElementsByClassName("rojo");
+    console.log(z);
+    const a = document.querySelectorAll("p.fondoverde");
+    const b = document.querySelectorAll("ul > li");
+    console.log(b);
+    const c = document.querySelector("h1");
+    console.log(c);
+    const d = document.querySelector(".list");
+    console.log(d);
+
+        console.log("INICIO FOREACH");
+    const listaDeElementos = document.querySelectorAll("ul > li");
+        listaDeElementos.forEach((item) => {
+            console.log(item);
+            
+        });
+        console.log("FINAL FOREACH");
+
+        const h1 = document.querySelector("h1");
+        h1.style.color = "purple";
+
+        //No supe que me saliomal y miscompañeritosnome responden
+        /*
+        const e = document.forms["form1"];
+        let texto = " ";
+        for(let i = 0; i < e.lenght; i++){
+            texto += x. e.elements[i].value + "<br>";
+        }
+        document.getElementById("demo").innerHTML = texto;
+        console.log(e);
+        */
+
+        let lista = document.createElement("ul");
+        document.body.appendChild(lista);
+
+        let elemento1 = document.createElement("li");
+        elemento1.textContent="Flor";
+        lista.appendChild(elemento1);
+        
+        let elemento2 = document.createElement("li");
+        elemento2.textContent="Jaguar";
+        lista.appendChild(elemento2);
+
+        var colourInput = document.getElementById('colourInput');
+        document.body.style.backgroundColor = colourInput.value;
+        colourInput.addEventListener("input",function(){
+            document.body.style.backgroundColor = colourInput.value;
+        });
+
+        let botonSubmit = document.getElementById('btnSubmit');
+        botonSubmit.addEventListener("click", () =>{
+            let x = document.forms["form1"]["testtext"].value;
+            if(x === ""){
+                alert("Se debe completar el nombre");
+                return false;
+            }
+        });
+
+        let botonSubmit2 = document.getElementById('btnSubmit2');
+        botonSubmit2.addEventListener("click", () =>{
+            let x = document.forms["form2"]["testtext2"].value
+            if (isNaN(x) || x < 1 || x > 10){
+                alert("Entrada no valida");
+                return false;
+            }else{
+                alert("Correcto");
+                return false
+            }
+            return false;
+        })
+        function ChangePicture(x) {
+        document.getElementById('imgimagin').src = linksimagin[Math.floor(Math.random() * linksimagin.length)];
+        console.log(document.getElementById('imgimagin').src);
+}
+
+        document.getElementById("timelabel").innerHTML = "Hora actual: " + Date();
+
+        const linksimagin = [
+            
+            "https://blog.hubspot.es/hs-fs/hubfs/Marvel%20logo.png?width=600&name=Marvel%20logo.png",
+            "https://blog.hubspot.es/hs-fs/hubfs/ES%20Blog%20images/Los%2015%20logos%20más%20creativos%20e%20inspiradores%20del%20mundo/logos_creativos_nasa.png?width=650&name=logos_creativos_nasa.png",
+            "https://blog.hubspot.es/hs-fs/hubfs/ES%20Blog%20images/Los%2015%20logos%20más%20creativos%20e%20inspiradores%20del%20mundo/logos_creativos_amazon.jpg?width=650&name=logos_creativos_amazon.jpg",
+            "https://blog.hubspot.es/hs-fs/hubfs/ES%20Blog%20images/Los%2015%20logos%20más%20creativos%20e%20inspiradores%20del%20mundo/logo_creativo_coca_cola.png?width=650&name=logo_creativo_coca_cola.png",
+            "https://blog.hubspot.es/hs-fs/hubfs/ES%20Blog%20images/Los%2015%20logos%20más%20creativos%20e%20inspiradores%20del%20mundo/logo_famoso_starbucks.jpg?width=650&name=logo_famoso_starbucks.jpg",
+            "https://blog.hubspot.es/hubfs/media/logoscreativosinspiradoreslego.jpeg",
+            "https://blog.hubspot.es/hubfs/media/logoscreativosinspiradoresmcdonalds.jpeg"
+
+
+        ]
+
+
+</script>
+</html>
